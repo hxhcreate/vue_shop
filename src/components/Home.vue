@@ -10,11 +10,11 @@
       </div>
     </el-header>
     <el-container>
-      <el-aside width='200px'>
-        aside
-      </el-aside>
+      <!--      侧边栏-->
+      <Sidebar></Sidebar>
+      <!--      主边栏-->
       <el-main>
-        main
+        <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -22,9 +22,12 @@
 </template>
 
 <script>
+import Sidebar from './Sidebar.vue'
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Home',
+  components: { Sidebar },
   data() {
     return {}
   },
@@ -62,9 +65,6 @@ export default {
   width: 50px;
 }
 
-.el-aside {
-  background-color: #333744;
-}
 
 .el-main {
   background-color: #eaedf1;
@@ -73,4 +73,6 @@ export default {
 .home_container {
   height: 100%;
 }
+
+
 </style>
