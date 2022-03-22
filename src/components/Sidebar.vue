@@ -4,16 +4,18 @@
       |||
     </div>
     <el-menu
-      active-text-color='#ffd04b'
       background-color='#333744'
       class='el-menu-vertical-demo'
       text-color='#fff'
+      active-text-color='#2e9afe'
       unique-opened
       :collapse='isCollapse'
       :collapse-transition='false'
+      router
+      :default-active='this.$route.path'
     >
       <!--    一级菜单-->
-      <el-submenu :index="item.id + ''" v-for='item in menuList' :key='item.id'
+      <el-submenu :index="item.path + ''" v-for='item in menuList' :key='item.id'
       >
         <template #title>
           <el-icon :size='22' class='icon_append' :class='iconList[item.id]'>
@@ -21,7 +23,9 @@
           <span>{{ item.authName }}</span>
         </template>
         <!--      二级菜单-->
-        <el-menu-item :index="subItem.id+''" v-for='subItem in item.children' :key='subItem.id'>
+        <el-menu-item :index="'/home/'+ subItem.path" v-for='subItem in item.children' :key='subItem.id'
+
+        >
           <template #title>
             <el-icon :size='15' class='icon_append'>
               <icon-menu />
@@ -83,8 +87,8 @@ export default {
 }
 
 .icon_append {
-  margin-right: 3px;
-  margin-bottom: 2px;
+  margin-right: 10px;
+  margin-bottom: 1px;
 }
 
 .el-menu-vertical-demo {

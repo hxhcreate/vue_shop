@@ -14,6 +14,7 @@
       <Sidebar></Sidebar>
       <!--      主边栏-->
       <el-main>
+        <!--        子路由-->
         <router-view></router-view>
       </el-main>
     </el-container>
